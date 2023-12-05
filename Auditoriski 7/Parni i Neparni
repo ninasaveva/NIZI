@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+//2.2. Задача 2
+//Да се напише програма која за низа чии елементи се внесуваат од тастатура,
+//ќе го пресмета збирот на парните елементи, збирот на непарните елементи,
+//како и односот помеѓу бројот на парни и непарни елементи. Резултатот да се испечати на екран.
+
+
+int main (){
+
+    int niza[100];
+    int elementi;
+
+    cin>>elementi;
+    for(int i = 0; i<elementi; i++){
+        cin>>niza[i];
+    }
+
+    int ParniPoziciiNaElementi = 0;
+    int NeparniPoziciiNaElementi = 0;
+
+    for(int i = 0; i<elementi; i++){
+        if(i%2 == 0){
+            ParniPoziciiNaElementi += niza[i];
+        }
+        else{
+            NeparniPoziciiNaElementi += niza[i];
+
+        }
+
+    }
+
+    cout<<ParniPoziciiNaElementi<<endl;
+    cout<<NeparniPoziciiNaElementi<<endl;
+    cout << "Rel: " << (float) ParniPoziciiNaElementi / NeparniPoziciiNaElementi<< endl;
+}
