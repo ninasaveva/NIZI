@@ -1,0 +1,42 @@
+//Од стандардеп оелаи опиели броеви стандарден влез се чита цел броj N. Потоа се вчитуваат N низи од цели
+//(со максимална должина од 100 елементи), при што за секоја прво се внесува
+//должината на низата, а потоа сите елементи на низата,
+//Да се напише програма која за секоја низа ќе го испечати процентот на огледални
+//еднакви броеви во низата. Огледални броеви во низа се првиот и последниот вториот и претпоследниот итн. Доколку
+//низата има непарен број на елементи средниот елемент е и огледален и еднаков
+
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+float procent(int niza[], int Br_Elementi){
+    int brojac= 0;
+    for(int i = 0; i<Br_Elementi/2; i++){
+        if(niza[i]==niza[Br_Elementi-1-i]){
+            brojac+=2;
+        }
+    }
+    if(Br_Elementi%2!=0){
+        brojac++;
+    }
+    return (float)brojac/Br_Elementi*100;
+}
+void VnesiNiza(){
+    int Elementi;
+    int niza[100];
+    cin>>Elementi;
+    for(int i =0; i<Elementi; i++){
+        cin>>niza[i];
+    }
+    float p = procent(niza, Elementi);
+    cout<<fixed<<setprecision(2)<<p<<"%"<<endl;
+}
+int main(){
+    int BrojNaNizi;
+    cin>>BrojNaNizi;
+    for(int i=0; i<BrojNaNizi; i++){
+        VnesiNiza();
+    }
+    return 0;
+}
